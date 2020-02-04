@@ -6,8 +6,12 @@ export default class AddTarget extends Component {
         name: '',
         info: '',
         status: '',
-        contacts: '',
-        performance: ''
+        contacts: {
+            contactName: '',
+            contactEmail: ''
+        },
+        performance: '',
+        emailInputs: ['input0']
 
     }
 
@@ -24,28 +28,45 @@ export default class AddTarget extends Component {
     }
 
     onNewTargetNameChange = (e) => {
-        const name = e.target.value;
+        const name = e.target.value
         this.setState({ name })
     }
 
     onNewTargetInfoChange = (e) => {
-        const info = e.target.value;
+        const info = e.target.value
         this.setState({ info })
     }
 
     onNewTargetStatusChange = (e) => {
-        const status = e.target.value;
+        const status = e.target.value
         this.setState({ status })
     }
 
-    onNewTargetContactsChange = (e) => {
-        const contacts = e.target.value;
-        this.setState({ contacts })
+
+    onNewTargetContactNameChange = (e) => {
+        const contactName = e.target.value
+        const previousState = { ...this.state }
+        previousState.contacts.contactName = contactName
+        this.setState(previousState)
+    }
+
+    onNewTargetContactEmailChange = (e) => {
+        const contactEmail = e.target.value
+        const previousState = { ...this.state }
+        previousState.contacts.contactEmail = contactEmail
+        this.setState(previousState)
     }
 
     onNewTargetPerformanceChange = (e) => {
-        const performance = e.target.value;
+        const performance = e.target.value
         this.setState({ performance })
+    }
+
+    appendNewContactField = () => {
+        const newInput = 'input' + this.state.emailInputs.length.toString()
+        const previousState = { ...this.state }
+        previousState.emailInputs.push(newInput)
+        this.setState(previousState)
     }
 
     render() {
@@ -82,21 +103,35 @@ export default class AddTarget extends Component {
                         <option value='approved'>Approved</option>
                         <option value='declined'>Declined</option>
                     </select>
-                    <input
-                        type='text'
-                        placeholder='Key Contacts'
-                        name="contacts"
-                        required="required"
-                        onChange={this.onNewTargetContactsChange}
-                        value={this.state.contacts}
-                    />
+                    {this.state.emailInputs.map((inputField) => {
+                        return (
+                            <div key={inputField} className='card--form--email'>
+                                <input
+                                    type='text'
+                                    placeholder='Key Contact Name'
+                                    name="contactName"
+                                    required="required"
+                                    onChange={this.onNewTargetContactNameChange}
+                                    value={this.state.contacts.contactName}
+                                />
+                                <input
+                                    type='email'
+                                    placeholder='Key Contact Email'
+                                    name="contactEmail"
+                                    required="required"
+                                    onChange={this.onNewTargetContactEmailChange}
+                                    value={this.state.contacts.contactEmail}
+                                />
+                            </div>
+                        )
+                    })}
+                    <button onClick={this.appendNewContactField}>+</button>
                     <input
                         type='text'
                         placeholder='Financial Performance'
                         name="performance"
                         required="required"
                         onChange={this.onNewTargetPerformanceChange}
-                        value={this.state.performance}
                     />
                     <input
                         type='submit'

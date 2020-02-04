@@ -25,6 +25,10 @@ body {
     .card--form {
         display: flex;
         flex-direction: column;
+
+        .card--form--email {
+            display: flex;
+        }
     }
 
     li {
