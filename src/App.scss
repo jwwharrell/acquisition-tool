@@ -12,4 +12,12 @@ body {
 .card {
     background-color: $cardBackground;
     color: $primary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card--form {
+    display: flex;
+    flex-direction: column;
 }

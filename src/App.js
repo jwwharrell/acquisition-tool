@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import './App.scss'
-import AddTarget from './components/cards/AddTarget'
+import Dashboard from './components/Dashboard.js'
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        <AddTarget />
+        <Dashboard />
       </div>
     )
   }
