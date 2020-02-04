@@ -9,10 +9,7 @@ export default class AddTarget extends Component {
         contacts: {
             contactName: '',
             contactEmail: ''
-        },
-        performance: '',
-        emailInputs: ['input0']
-
+        }
     }
 
     createNewTarget = (e) => {
@@ -22,7 +19,6 @@ export default class AddTarget extends Component {
             info: this.state.info,
             status: this.state.status,
             contacts: this.state.contacts,
-            performance: this.state.performance
         }
         this.props.onSubmit(newTarget)
     }
@@ -42,7 +38,6 @@ export default class AddTarget extends Component {
         this.setState({ status })
     }
 
-
     onNewTargetContactNameChange = (e) => {
         const contactName = e.target.value
         const previousState = { ...this.state }
@@ -57,17 +52,6 @@ export default class AddTarget extends Component {
         this.setState(previousState)
     }
 
-    onNewTargetPerformanceChange = (e) => {
-        const performance = e.target.value
-        this.setState({ performance })
-    }
-
-    appendNewContactField = () => {
-        const newInput = 'input' + this.state.emailInputs.length.toString()
-        const previousState = { ...this.state }
-        previousState.emailInputs.push(newInput)
-        this.setState(previousState)
-    }
 
     render() {
         return (
@@ -103,36 +87,24 @@ export default class AddTarget extends Component {
                         <option value='approved'>Approved</option>
                         <option value='declined'>Declined</option>
                     </select>
-                    {this.state.emailInputs.map((inputField) => {
-                        return (
-                            <div key={inputField} className='card--form--email'>
-                                <input
-                                    type='text'
-                                    placeholder='Key Contact Name'
-                                    name="contactName"
-                                    required="required"
-                                    onChange={this.onNewTargetContactNameChange}
-                                    value={this.state.contacts.contactName}
-                                />
-                                <input
-                                    type='email'
-                                    placeholder='Key Contact Email'
-                                    name="contactEmail"
-                                    required="required"
-                                    onChange={this.onNewTargetContactEmailChange}
-                                    value={this.state.contacts.contactEmail}
-                                />
-                            </div>
-                        )
-                    })}
-                    <button onClick={this.appendNewContactField}>+</button>
-                    <input
-                        type='text'
-                        placeholder='Financial Performance'
-                        name="performance"
-                        required="required"
-                        onChange={this.onNewTargetPerformanceChange}
-                    />
+                    <div className='card--form--group'>
+                        <input
+                            type='text'
+                            placeholder='Key Contact Name'
+                            name="contactName"
+                            required="required"
+                            onChange={this.onNewTargetContactNameChange}
+                            value={this.state.contacts.contactName}
+                        />
+                        <input
+                            type='email'
+                            placeholder='Key Contact Email'
+                            name="contactEmail"
+                            required="required"
+                            onChange={this.onNewTargetContactEmailChange}
+                            value={this.state.contacts.contactEmail}
+                        />
+                    </div>
                     <input
                         type='submit'
                     />
