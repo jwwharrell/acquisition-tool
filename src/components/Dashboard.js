@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AddTarget from './cards/AddTarget.js'
-import AllTargets from './cards/AllTargets.js'
+import TargetList from './cards/TargetList.js'
 
 export default class Dashboard extends Component {
     state = {
@@ -16,17 +16,13 @@ export default class Dashboard extends Component {
 
     render() {
         return (
-            <div>
+            <div className='dashboard'>
                 <AddTarget
                     onSubmit={this.onAddTarget}
                 />
-                {this.state.listOfTargets.map((target) => {
-                    return (
-                        <AllTargets
-                            name={target.name}
-                        />
-                    )
-                })}
+                <TargetList
+                    listOfTargets={this.state.listOfTargets}
+                />
             </div>
         )
     }

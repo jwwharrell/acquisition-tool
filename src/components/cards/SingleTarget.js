@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class AllTargets extends Component {
+export default class SingleTarget extends Component {
     
     render() {
         return (
