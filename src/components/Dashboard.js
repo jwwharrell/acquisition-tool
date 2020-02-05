@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import AddTarget from '../forms/AddTarget.js'
-import TargetList from '../cards/TargetList.js'
-import FinancialPerformance from '../cards/FinancialPerformance.js'
+import AddTarget from './forms/AddTarget.js'
+import TargetList from './cards/TargetList.js'
+import FinancialPerformance from './cards/FinancialPerformance.js'
+import SingleTarget from './cards/SingleTarget.js'
+import ContactList from './cards/ContactList.js'
 
 export default class Dashboard extends Component {
     state = {
@@ -25,7 +27,7 @@ export default class Dashboard extends Component {
             return target.id === targetId
         })
         const previousState = { ...this.state }
-        previousState.selectedTarget = selectedTarget
+        previousState.selectedTarget = selectedTarget[0]
         this.setState(previousState)
     }
 
@@ -41,7 +43,12 @@ export default class Dashboard extends Component {
                         listOfTargets={this.state.listOfTargets}
                         selectTarget={this.onTargetSelect}
                     />
-                    <FinancialPerformance />
+                    {this.state.selectedTarget === '' ? null :
+                    <FinancialPerformance targetInfo={this.state.selectedTarget} />
+                    }
+                    {this.state.selectedTarget === '' ? null :
+                    <SingleTarget targetInfo={this.state.selectedTarget} />
+                    }
                 </div>
             </div>
         )
