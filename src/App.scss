@@ -18,8 +18,21 @@ h2 {
     font-weight: 200;
 }
 
+p {
+    font-weight: 200;
+}
+
 .dashboard {
  display: flex;
+}
+
+.company {
+    border: $accent 2px solid;
+    border-radius: 5px;
+
+    .company--header{
+        padding: 5px 20px;
+    }
 }
 
 .card {

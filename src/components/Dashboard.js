@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import AddTarget from './forms/AddTarget.js'
 import TargetList from './cards/TargetList.js'
-import FinancialPerformance from './cards/FinancialPerformance.js'
-import SingleTarget from './cards/SingleTarget.js'
-import ContactList from './cards/ContactList.js'
+
+import CompanyCard from './cards/CompanyCard.js'
 
 export default class Dashboard extends Component {
     state = {
@@ -39,15 +38,14 @@ export default class Dashboard extends Component {
                     <AddTarget
                         onSubmit={this.onAddTarget}
                     />
-                    <TargetList
-                        listOfTargets={this.state.listOfTargets}
-                        selectTarget={this.onTargetSelect}
-                    />
-                    {this.state.selectedTarget === '' ? null :
-                    <FinancialPerformance targetInfo={this.state.selectedTarget} />
+                    {this.state.listOfTargets.length === 0 ? null :
+                        <TargetList
+                            listOfTargets={this.state.listOfTargets}
+                            selectTarget={this.onTargetSelect}
+                        />
                     }
                     {this.state.selectedTarget === '' ? null :
-                    <SingleTarget targetInfo={this.state.selectedTarget} />
+                        <CompanyCard targetInfo={this.state.selectedTarget} />
                     }
                 </div>
             </div>
