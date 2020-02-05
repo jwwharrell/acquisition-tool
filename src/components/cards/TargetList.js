@@ -1,14 +1,24 @@
 import React, { Component } from 'react'
 
 export default class TargetList extends Component {
+
+    onTargetSelect = (e) => {
+        this.props.selectTarget(e.target.value)
+    }
+
     render() {
         return (
             <ul className='card'>
                 <h2>Target List Component</h2>
 
                 {this.props.listOfTargets.map((target, index) => {
+                    let singleLink = `/company/${target.id}`
                     return (
-                        <li key={'target' + index.toString()}>{target.name}</li>
+                        <li key={'targetList' + index.toString()}>
+                            <button
+                                value={target.id}
+                                onClick={this.onTargetSelect}
+                            >{target.name}</button></li>
                     )
                 })}
             </ul>

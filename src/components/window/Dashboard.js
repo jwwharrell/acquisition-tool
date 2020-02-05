@@ -6,6 +6,7 @@ import FinancialPerformance from '../cards/FinancialPerformance.js'
 export default class Dashboard extends Component {
     state = {
         listOfTargets: [],
+        selectedTarget: ''
 
     }
 
@@ -15,6 +16,16 @@ export default class Dashboard extends Component {
         currentTarget.id = 'target' + this.state.listOfTargets.length.toString()
         const previousState = { ...this.state }
         previousState.listOfTargets.push(currentTarget)
+        this.setState(previousState)
+    }
+
+    onTargetSelect = (targetId) => {
+        let allTargets = this.state.listOfTargets
+        let selectedTarget = allTargets.filter((target) => {
+            return target.id === targetId
+        })
+        const previousState = { ...this.state }
+        previousState.selectedTarget = selectedTarget
         this.setState(previousState)
     }
 
@@ -28,6 +39,7 @@ export default class Dashboard extends Component {
                     />
                     <TargetList
                         listOfTargets={this.state.listOfTargets}
+                        selectTarget={this.onTargetSelect}
                     />
                     <FinancialPerformance />
                 </div>
