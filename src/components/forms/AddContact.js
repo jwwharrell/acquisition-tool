@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class AddContact extends Component {
     state = {
-        contacts: {
+        contact: {
             contactName: '',
             contactEmail: ''
         }
@@ -11,27 +11,35 @@ export default class AddContact extends Component {
     onNewTargetContactNameChange = (e) => {
         const contactName = e.target.value
         const previousState = { ...this.state }
-        previousState.contacts.contactName = contactName
+        previousState.contact.contactName = contactName
         this.setState(previousState)
     }
 
     onNewTargetContactEmailChange = (e) => {
         const contactEmail = e.target.value
         const previousState = { ...this.state }
-        previousState.contacts.contactEmail = contactEmail
+        previousState.contact.contactEmail = contactEmail
         this.setState(previousState)
+    }
+
+    createNewContact = (e) => {
+        e.preventDefault()
+        const newContact = this.state.contact
+        this.props.addContact(newContact)
     }
 
     render() {
         return (
-            <div className='card--form--group'>
+            <form 
+                onSubmit={this.createNewContact}
+                className='card--form'>
                 <input
                     type='text'
                     placeholder='Key Contact Name'
                     name="contactName"
                     required="required"
                     onChange={this.onNewTargetContactNameChange}
-                    value={this.state.contacts.contactName}
+                    value={this.state.contact.contactName}
                 />
                 <input
                     type='email'
@@ -39,9 +47,12 @@ export default class AddContact extends Component {
                     name="contactEmail"
                     required="required"
                     onChange={this.onNewTargetContactEmailChange}
-                    value={this.state.contacts.contactEmail}
+                    value={this.state.contact.contactEmail}
                 />
-            </div>
+                <input
+                        type='submit'
+                    />
+            </form>
         )
     }
 }

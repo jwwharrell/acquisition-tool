@@ -12,7 +12,6 @@ export default class TargetList extends Component {
                 <h2>Target List Component</h2>
 
                 {this.props.listOfTargets.map((target, index) => {
-                    let singleLink = `/company/${target.id}`
                     return (
                         <li key={'targetList' + index.toString()}>
                             <button
