@@ -14,9 +14,7 @@ export default class ContactList extends Component {
     }
 
     onAddContact = (newContact) => {
-        console.log(this.state.allContacts)
         const previousState = { ...this.state }
-        console.log(newContact)
         previousState.allContacts.push({...newContact})
         this.setState(previousState)
     }
@@ -34,7 +32,7 @@ export default class ContactList extends Component {
                 </ul>
                 <button
                     onClick={this.onButtonPress}
-                >Add Key Contacts</button>
+                >{this.state.buttonPressed ? 'Hide Form' : 'Add Key Contacts'}</button>
                 {this.state.buttonPressed ? <AddContact addContact={this.onAddContact} /> : null}
             </div>
         )

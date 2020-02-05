@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
 import FinancialPerformance from './FinancialPerformance.js'
 import ContactList from './ContactList.js'
-import Data from '../../mock_data.js'
 
 export default class CompanyCard extends Component {
-    componentDidMount() {
-        console.log('Companies', Data.companies)
-    }
+    
     render() {
         return (
             <div className='company'>
