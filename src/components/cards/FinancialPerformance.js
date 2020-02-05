@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import AddFinancialPerformance from '../forms/AddFinancialPerformance.js'
+import LineChart from '../tables/LineChart.js'
+
 
 export default class FinancialPerformance extends Component {
     state = {
-        performanceData: {},
+        performanceData: '',
         buttonPressed: false
     }
 
@@ -23,6 +25,7 @@ export default class FinancialPerformance extends Component {
         return (
             <div className='card'>
                 <h2>Financial Performance</h2>
+                {this.state.performanceData !== '' ? <LineChart perfData={this.state.performanceData} /> : null}
                 <button onClick={this.onButtonPress}>{this.state.buttonPressed ? 'Hide Form' : 'Add Performance Data'}</button>
                 {this.state.buttonPressed ? <AddFinancialPerformance addData={this.onAddData} /> : null}
             </div>
