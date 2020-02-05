@@ -6,6 +6,7 @@ export default class SingleTarget extends Component {
         return (
             <div>
                 <h3>{this.props.name}</h3>
+                <p>{this.props.info}</p>
             </div>
         )
     }

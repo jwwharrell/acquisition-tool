@@ -3,10 +3,19 @@ $primary: #333342;
 $secondary: #8D8D8D;
 $accent: #E7C79A;
 $cardBackground: #FFFFFF;
-$background: #F4F4F4;
+$background: #F9F9F9;
 
 body {
     background-color: $background;
+    padding: 5px;
+}
+
+h1 {
+    font-weight: 200;
+}
+
+h2 {
+    font-weight: 200;
 }
 
 .dashboard {
