@@ -8,18 +8,17 @@ $background: #F9F9F9;
 body {
     background-color: $background;
     padding: 5px;
+    color: $primary;
 }
 
-h1 {
+h1, h2, .statusMark, p {
     font-weight: 200;
 }
 
-h2 {
-    font-weight: 200;
-}
-
-p {
-    font-weight: 200;
+.statusMark {
+    border-top: $secondary 1px solid;
+    border-bottom: $secondary 1px solid;
+    padding: 2px;
 }
 
 .dashboard {

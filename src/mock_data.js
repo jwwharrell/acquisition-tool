@@ -6,7 +6,7 @@ export default {
             name: 'Acme Co',
             info: 'We sell anvils',
             id: 'target0',
-            status: 'researching',
+            status: 'Researching',
             contacts: [],
             performanceData: {
                 q1_2018: '3',
@@ -23,7 +23,7 @@ export default {
             name: 'Something LLC',
             info: 'Since 1297, leading the world in experience-driven marketing and sustainable thought.',
             id: 'target1',
-            status: 'researching',
+            status: 'Pending Approval',
             contacts: [],
             performanceData: {
                 q1_2018: '1',
@@ -40,7 +40,7 @@ export default {
             name: 'Another LLC',
             info: 'Creating vast platforms that deliver quality solutions to the smallest problems',
             id: 'target2',
-            status: 'researching',
+            status: 'Accepted',
             contacts: [],
             performanceData: {
                 q1_2018: '2',

@@ -76,10 +76,10 @@ export default class AddTarget extends Component {
                             value={this.state.status}
                         >
                             <option value={null}> -- Select Status -- </option>
-                            <option value='researching'>Researching</option>
-                            <option value='pendingApproval'>Pending Approval</option>
-                            <option value='approved'>Approved</option>
-                            <option value='declined'>Declined</option>
+                            <option value='Researching'>Researching</option>
+                            <option value='Pending Approval'>Pending Approval</option>
+                            <option value='Approved'>Approved</option>
+                            <option value='Declined'>Declined</option>
                         </select>
                         <input
                             type='submit'
