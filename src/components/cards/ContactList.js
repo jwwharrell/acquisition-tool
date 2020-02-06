@@ -3,13 +3,12 @@ import AddContact from '../forms/AddContact.js'
 
 export default class ContactList extends Component {
     state = {
-        allContacts: [],
         buttonPressed: false,
         parentId: ''
     }
 
     componentDidMount() {
-        this.setState({allContacts: this.props.targetInfo.contacts , buttonPressed: false, parentId: this.props.targetInfo.id})
+        this.setState({buttonPressed: false, parentId: this.props.targetInfo.id})
     }
 
     onButtonPress = () => {
@@ -25,7 +24,7 @@ export default class ContactList extends Component {
             <div className='card'>
                 <h2>Contacts</h2>
                 <ul>
-                    {this.state.allContacts.map((contact, index) => {
+                    {this.props.targetInfo.contacts.map((contact, index) => {
                         return (
                             <li key={'contact' + index.toString()}>{contact.contactName}: {contact.contactEmail}</li>
                         )

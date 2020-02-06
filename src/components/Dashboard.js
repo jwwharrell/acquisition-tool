@@ -30,22 +30,41 @@ export default class Dashboard extends Component {
             if (target.id === targetId) {
                 return index
             } else {
-                return false
+                return 'Unique Value'
             }
         })
         const oneArray = indexOfTarget.filter((index) => {
-            if (index) {
+            if (index !== 'Unique Value') {
                 return index
             }
         })
-        const index = oneArray[0]
-        previousState.listOfTargets[index].performanceData = {...newData}
+        let newIndex = oneArray[0]
+        if (newIndex === undefined) {
+            newIndex = 0
+        }
+        previousState.listOfTargets[newIndex].performanceData = {...newData}
         this.setState(previousState)
     }
 
     onAddContact = (newContact, targetId) => {
         const previousState = { ...this.state }
-        previousState.allContacts.push({...newContact})
+        const indexOfTarget = previousState.listOfTargets.map((target, index) => {
+            if (target.id === targetId) {
+                return index
+            } else {
+                return 'Unique Value'
+            }
+        })
+        const oneArray = indexOfTarget.filter((index) => {
+            if (index !== 'Unique Value') {
+                return index
+            }
+        })
+        let newIndex = oneArray[0]
+        if (newIndex === undefined) {
+            newIndex = 0
+        }
+        previousState.listOfTargets[newIndex].contacts.push({...newContact})
         this.setState(previousState)
     }
 

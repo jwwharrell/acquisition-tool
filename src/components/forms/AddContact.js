@@ -24,8 +24,9 @@ export default class AddContact extends Component {
 
     createNewContact = (e) => {
         e.preventDefault()
+        const id = this.props.targetId
         const newContact = this.state.contact
-        this.props.addContact(newContact)
+        this.props.addContact(newContact, id)
     }
 
     render() {
