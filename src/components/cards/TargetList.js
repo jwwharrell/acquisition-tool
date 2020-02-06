@@ -3,7 +3,11 @@ import React, { Component } from 'react'
 export default class TargetList extends Component {
 
     onTargetSelect = (e) => {
-        this.props.selectTarget(e.target.value)
+        this.props.targetSelect(e.target.value)
+    }
+
+    onTargetDelete = (e) => {
+        this.props.targetDelete(e.target.value)
     }
 
     render() {
@@ -17,7 +21,16 @@ export default class TargetList extends Component {
                             <button
                                 value={target.id}
                                 onClick={this.onTargetSelect}
-                            >{target.name}</button></li>
+                            >
+                                {target.name}
+                            </button>
+                            <button
+                                value={target.id}
+                                onClick={this.onTargetDelete} 
+                            >
+                                Delete Target
+                            </button>
+                        </li>
                     )
                 })}
             </ul>

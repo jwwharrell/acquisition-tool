@@ -26,45 +26,25 @@ export default class Dashboard extends Component {
 
     onAddFinancialData = (newData, targetId) => {
         const previousState = { ...this.state }
-        const indexOfTarget = previousState.listOfTargets.map((target, index) => {
-            if (target.id === targetId) {
-                return index
-            } else {
-                return 'Unique Value'
+        let newIndex
+        for (let i = 0; i < previousState.listOfTargets.length; i++) {
+            if (previousState.listOfTargets[i].id === targetId) {
+                newIndex = i
             }
-        })
-        const oneArray = indexOfTarget.filter((index) => {
-            if (index !== 'Unique Value') {
-                return index
-            }
-        })
-        let newIndex = oneArray[0]
-        if (newIndex === undefined) {
-            newIndex = 0
         }
-        previousState.listOfTargets[newIndex].performanceData = {...newData}
+        previousState.listOfTargets[newIndex].performanceData = { ...newData }
         this.setState(previousState)
     }
 
     onAddContact = (newContact, targetId) => {
         const previousState = { ...this.state }
-        const indexOfTarget = previousState.listOfTargets.map((target, index) => {
-            if (target.id === targetId) {
-                return index
-            } else {
-                return 'Unique Value'
+        let newIndex
+        for (let i = 0; i < previousState.listOfTargets.length; i++) {
+            if (previousState.listOfTargets[i].id === targetId) {
+                newIndex = i
             }
-        })
-        const oneArray = indexOfTarget.filter((index) => {
-            if (index !== 'Unique Value') {
-                return index
-            }
-        })
-        let newIndex = oneArray[0]
-        if (newIndex === undefined) {
-            newIndex = 0
         }
-        previousState.listOfTargets[newIndex].contacts.push({...newContact})
+        previousState.listOfTargets[newIndex].contacts.push({ ...newContact })
         this.setState(previousState)
     }
 
@@ -75,6 +55,18 @@ export default class Dashboard extends Component {
         })
         const previousState = { ...this.state }
         previousState.selectedTarget = selectedTarget[0]
+        this.setState(previousState)
+    }
+
+    onTargetDelete = (targetId) => {
+        const previousState = { ...this.state }
+        let newIndex
+        for (let i = 0; i < previousState.listOfTargets.length; i++) {
+            if (previousState.listOfTargets[i].id === targetId) {
+                newIndex = i
+            }
+        }
+        previousState.listOfTargets.splice(newIndex, 1)
         this.setState(previousState)
     }
 
@@ -89,7 +81,8 @@ export default class Dashboard extends Component {
                     {this.state.listOfTargets.length === 0 ? null :
                         <TargetList
                             listOfTargets={this.state.listOfTargets}
-                            selectTarget={this.onTargetSelect}
+                            targetSelect={this.onTargetSelect}
+                            targetDelete={this.onTargetDelete}
                         />
                     }
                     {this.state.selectedTarget === '' ? null :
