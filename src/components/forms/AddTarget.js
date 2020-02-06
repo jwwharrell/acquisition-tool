@@ -62,7 +62,7 @@ export default class AddTarget extends Component {
                             onChange={this.onNewTargetNameChange}
                             value={this.state.name}
                         />
-                        <input
+                        <textarea
                             type='text'
                             placeholder='Company Info'
                             name="info"

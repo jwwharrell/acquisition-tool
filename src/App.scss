@@ -62,5 +62,10 @@ h1, h2, .statusMark, p {
     .dashboard {
         display: flex;
     }
+
+    .card--form {
+        display: flex;
+        flex-direction: column;
+    }
      
 }

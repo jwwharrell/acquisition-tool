@@ -70,6 +70,20 @@ export default class Dashboard extends Component {
         this.setState(previousState)
     }
 
+    onSubmitEdit = (updatedInfo, targetId) => {
+        const previousState = { ...this.state }
+        let newIndex
+        for (let i = 0; i < previousState.listOfTargets.length; i++) {
+            if (previousState.listOfTargets[i].id === targetId) {
+                newIndex = i
+            }
+        }
+        previousState.listOfTargets[newIndex].name = updatedInfo.name
+        previousState.listOfTargets[newIndex].info = updatedInfo.info
+        previousState.listOfTargets[newIndex].status = updatedInfo.status
+        this.setState(previousState)
+    }
+
     render() {
         return (
             <div>
@@ -90,7 +104,8 @@ export default class Dashboard extends Component {
                             targetInfo={this.state.selectedTarget} 
                             addFinData={this.onAddFinancialData}
                             addContact={this.onAddContact}
-                            />
+                            onSubmitEdit={this.onSubmitEdit}
+                        />
                     }
                 </div>
             </div>
