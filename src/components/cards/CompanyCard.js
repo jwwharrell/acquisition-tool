@@ -37,6 +37,8 @@ export default class CompanyCard extends Component {
                 <ContactList 
                     targetInfo={this.props.targetInfo}
                     addContact={this.props.addContact}
+                    editContact={this.props.editContact}
+                    deleteContact={this.props.deleteContact}
                 />
                 <FinancialPerformance 
                     targetInfo={this.props.targetInfo}

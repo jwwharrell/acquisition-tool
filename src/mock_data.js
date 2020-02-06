@@ -3,11 +3,22 @@
 export default {
     companies: [
         {
-            name: 'Acme Co',
-            info: 'We sell anvils',
+            name: 'IMCW Inc.',
+            info: 'International Mouse Chair Warehouse Inc. supplies the world finely crafted furniture for mice of all sizes. Established in 2020, we have long been the industry standard for custom mouse pieces.',
             id: 'target0',
             status: 'Researching',
-            contacts: [],
+            contacts: [
+                {
+                    id: "contact0",
+                    contactName: "Jimmy Jimmerson",
+                    contactEmail: "jimjim3792@gmail.com"
+                },
+                {
+                    id: "contact1",
+                    contactName: "Samantha Samanthason",
+                    contactEmail: "samansalmon@hotmail.com"
+                },
+            ],
             performanceData: {
                 q1_2018: '3',
                 q2_2018: '5',

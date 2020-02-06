@@ -48,6 +48,37 @@ export default class Dashboard extends Component {
         this.setState(previousState)
     }
 
+    onEditContact = (updatedContacts, targetId) => {
+        const previousState = { ...this.state }
+        let targetIndex
+        for (let i = 0; i < previousState.listOfTargets.length; i++) {
+            if (previousState.listOfTargets[i].id === targetId) {
+                targetIndex = i
+            }
+        }
+        previousState.listOfTargets[targetIndex].contacts = updatedContacts
+        this.setState(previousState)
+    }
+
+    onDeleteContact = (targetId, contactId) => {
+        const previousState = { ...this.state }
+        let targetIndex
+        for (let i = 0; i < previousState.listOfTargets.length; i++) {
+            if (previousState.listOfTargets[i].id === targetId) {
+                targetIndex = i
+            }
+        }
+        let contactIndex
+        let targetedContacts = previousState.listOfTargets[targetIndex].contacts
+        for (let j = 0; j < targetedContacts.length; j++) {
+            if (targetedContacts[j].id === contactId) {
+                contactIndex = j
+            }
+        }
+        previousState.listOfTargets[targetIndex].contacts.splice(contactIndex, 1)
+        this.setState(previousState)
+    }
+
     onTargetSelect = (targetId) => {
         let allTargets = this.state.listOfTargets
         let selectedTarget = allTargets.filter((target) => {
@@ -104,6 +135,8 @@ export default class Dashboard extends Component {
                             targetInfo={this.state.selectedTarget} 
                             addFinData={this.onAddFinancialData}
                             addContact={this.onAddContact}
+                            editContact={this.onEditContact}
+                            deleteContact={this.onDeleteContact}
                             onSubmitEdit={this.onSubmitEdit}
                         />
                     }

@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 export default class AddContact extends Component {
     state = {
         contact: {
+            id: 'contact' + this.props.targetInfo.contacts.length,
             contactName: '',
             contactEmail: ''
         }
@@ -24,7 +25,7 @@ export default class AddContact extends Component {
 
     createNewContact = (e) => {
         e.preventDefault()
-        const id = this.props.targetId
+        const id = this.props.targetInfo.id
         const newContact = this.state.contact
         this.props.addContact(newContact, id)
     }
