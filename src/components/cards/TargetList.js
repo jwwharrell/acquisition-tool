@@ -9,7 +9,7 @@ export default class TargetList extends Component {
     render() {
         return (
             <ul className='card'>
-                <h2>Target List Component</h2>
+                <h2>Target List</h2>
 
                 {this.props.listOfTargets.map((target, index) => {
                     return (

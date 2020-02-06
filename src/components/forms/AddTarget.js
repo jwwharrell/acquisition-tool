@@ -6,6 +6,7 @@ export default class AddTarget extends Component {
         name: '',
         info: '',
         status: '',
+        buttonPressed: false
     }
 
     createNewTarget = (e) => {
@@ -14,6 +15,8 @@ export default class AddTarget extends Component {
             name: this.state.name,
             info: this.state.info,
             status: this.state.status,
+            contacts: [],
+            performanceData: ''
         }
         this.props.onSubmit(newTarget)
     }
@@ -33,47 +36,57 @@ export default class AddTarget extends Component {
         this.setState({ status })
     }
 
-    
+    onButtonPress = () => {
+        const previousState = { ...this.state }
+        previousState.buttonPressed = !this.state.buttonPressed
+        this.setState(previousState)
+    }
 
 
     render() {
         return (
             <div className='card'>
-                <form
-                    className='card--form'
-                    onSubmit={this.createNewTarget}
-                >
-                    <input
-                        type='text'
-                        placeholder='Company Name'
-                        name="name"
-                        required="required"
-                        onChange={this.onNewTargetNameChange}
-                        value={this.state.name}
-                    />
-                    <input
-                        type='text'
-                        placeholder='Company Info'
-                        name="info"
-                        required="required"
-                        onChange={this.onNewTargetInfoChange}
-                        value={this.state.info}
-                    />
-                    <select
-                        name='status'
-                        onChange={this.onNewTargetStatusChange}
-                        value={this.state.status}
+                <button onClick={this.onButtonPress}>
+                    {this.state.buttonPressed ? 'Hide Form' : 'Add Target'}
+                </button>
+                {this.state.buttonPressed ?
+                    <form
+                        className='card--form'
+                        onSubmit={this.createNewTarget}
                     >
-                        <option value={null}> -- Select Status -- </option>
-                        <option value='researching'>Researching</option>
-                        <option value='pendingApproval'>Pending Approval</option>
-                        <option value='approved'>Approved</option>
-                        <option value='declined'>Declined</option>
-                    </select>
-                    <input
-                        type='submit'
-                    />
-                </form>
+                        <input
+                            type='text'
+                            placeholder='Company Name'
+                            name="name"
+                            required="required"
+                            onChange={this.onNewTargetNameChange}
+                            value={this.state.name}
+                        />
+                        <input
+                            type='text'
+                            placeholder='Company Info'
+                            name="info"
+                            required="required"
+                            onChange={this.onNewTargetInfoChange}
+                            value={this.state.info}
+                        />
+                        <select
+                            name='status'
+                            onChange={this.onNewTargetStatusChange}
+                            value={this.state.status}
+                        >
+                            <option value={null}> -- Select Status -- </option>
+                            <option value='researching'>Researching</option>
+                            <option value='pendingApproval'>Pending Approval</option>
+                            <option value='approved'>Approved</option>
+                            <option value='declined'>Declined</option>
+                        </select>
+                        <input
+                            type='submit'
+                        />
+                    </form>
+                    : null
+                }
             </div>
         )
     }

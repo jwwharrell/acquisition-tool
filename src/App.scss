@@ -23,7 +23,7 @@ p {
 }
 
 .dashboard {
- display: flex;
+ display: block;
 }
 
 .company {
@@ -58,3 +58,10 @@ p {
     }
 }
 
+@media (min-width: 640px) {
+ 
+    .dashboard {
+        display: flex;
+    }
+     
+}

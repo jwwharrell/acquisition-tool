@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AddTarget from './forms/AddTarget.js'
 import TargetList from './cards/TargetList.js'
+import Data from '../mock_data.js'
 
 import CompanyCard from './cards/CompanyCard.js'
 
@@ -11,6 +12,9 @@ export default class Dashboard extends Component {
 
     }
 
+    componentDidMount() {
+        this.setState({listOfTargets: Data.companies, selectedTarget: ''})
+    }
 
     onAddTarget = (newTarget) => {
         let currentTarget = newTarget

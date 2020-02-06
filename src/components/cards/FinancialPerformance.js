@@ -5,8 +5,7 @@ import LineChart from '../tables/LineChart.js'
 
 export default class FinancialPerformance extends Component {
     state = {
-        performanceData: '',
-        buttonPressed: false
+        buttonPressed: false,
     }
 
     onButtonPress = () => {
@@ -25,7 +24,7 @@ export default class FinancialPerformance extends Component {
         return (
             <div className='card'>
                 <h2>Financial Performance</h2>
-                {this.state.performanceData !== '' ? <LineChart perfData={this.state.performanceData} /> : null}
+                {this.state.performanceData !== '' ? <LineChart perfData={this.props.targetInfo.performanceData} /> : null}
                 <button onClick={this.onButtonPress}>{this.state.buttonPressed ? 'Hide Form' : 'Add Performance Data'}</button>
                 {this.state.buttonPressed ? <AddFinancialPerformance addData={this.onAddData} /> : null}
             </div>

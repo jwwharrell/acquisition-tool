@@ -4,7 +4,12 @@ import AddContact from '../forms/AddContact.js'
 export default class ContactList extends Component {
     state = {
         allContacts: [],
-        buttonPressed: false
+        buttonPressed: false,
+        parentId: ''
+    }
+
+    componentDidMount() {
+        this.setState({allContacts: this.props.targetInfo.contacts , buttonPressed: false, parentId: this.props.targetInfo.id})
     }
 
     onButtonPress = () => {
