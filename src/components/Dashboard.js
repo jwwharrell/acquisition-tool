@@ -29,9 +29,17 @@ export default class Dashboard extends Component {
         const indexOfTarget = previousState.listOfTargets.map((target, index) => {
             if (target.id === targetId) {
                 return index
+            } else {
+                return false
             }
         })
-        previousState.listOfTargets[indexOfTarget].performanceData = {...newData}
+        const oneArray = indexOfTarget.filter((index) => {
+            if (index) {
+                return index
+            }
+        })
+        const index = oneArray[0]
+        previousState.listOfTargets[index].performanceData = {...newData}
         this.setState(previousState)
     }
 
