@@ -17,11 +17,17 @@ export default class FinancialPerformance extends Component {
     
 
     render() {
+        let addOrUpdate
+        if (this.props.targetInfo.performanceData === '') {
+            addOrUpdate = 'Add Performance Data'
+        } else {
+            addOrUpdate = 'Edit Performance Data'
+        }
         return (
             <div className='card'>
                 <h2>Financial Performance</h2>
                 {this.state.performanceData !== '' ? <LineChart perfData={this.props.targetInfo.performanceData} /> : null}
-                <button onClick={this.onButtonPress}>{this.state.buttonPressed ? 'Hide Form' : 'Add Performance Data'}</button>
+                <button onClick={this.onButtonPress}>{this.state.buttonPressed ? 'Hide Form' : addOrUpdate}</button>
                 {this.state.buttonPressed ? 
                     <AddFinancialPerformance 
                         addFinData={this.props.addFinData}
