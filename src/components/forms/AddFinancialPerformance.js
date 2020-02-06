@@ -72,8 +72,9 @@ export default class AddFinancialPerformance extends Component {
 
     createNewPerfData = (e) => {
         e.preventDefault()
+        const id = this.props.targetId
         const newData = this.state.performance
-        this.props.addData(newData)
+        this.props.addFinData(newData, id)
     }
 
     render() {

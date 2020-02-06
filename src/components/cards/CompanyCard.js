@@ -11,8 +11,14 @@ export default class CompanyCard extends Component {
                     <h2>{this.props.targetInfo.name}</h2>
                     <p>{this.props.targetInfo.info}</p>
                 </div>
-                <ContactList targetInfo={this.props.targetInfo} />
-                <FinancialPerformance targetInfo={this.props.targetInfo} />
+                <ContactList 
+                    targetInfo={this.props.targetInfo}
+                    addContact={this.props.addContact}
+                />
+                <FinancialPerformance 
+                    targetInfo={this.props.targetInfo}
+                    addFinData={this.props.addFinData}
+                />
             </div>
         )
     }

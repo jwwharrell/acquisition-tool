@@ -24,6 +24,23 @@ export default class Dashboard extends Component {
         this.setState(previousState)
     }
 
+    onAddFinancialData = (newData, targetId) => {
+        const previousState = { ...this.state }
+        const indexOfTarget = previousState.listOfTargets.map((target, index) => {
+            if (target.id === targetId) {
+                return index
+            }
+        })
+        previousState.listOfTargets[indexOfTarget].performanceData = {...newData}
+        this.setState(previousState)
+    }
+
+    onAddContact = (newContact, targetId) => {
+        const previousState = { ...this.state }
+        previousState.allContacts.push({...newContact})
+        this.setState(previousState)
+    }
+
     onTargetSelect = (targetId) => {
         let allTargets = this.state.listOfTargets
         let selectedTarget = allTargets.filter((target) => {
@@ -49,7 +66,11 @@ export default class Dashboard extends Component {
                         />
                     }
                     {this.state.selectedTarget === '' ? null :
-                        <CompanyCard targetInfo={this.state.selectedTarget} />
+                        <CompanyCard 
+                            targetInfo={this.state.selectedTarget} 
+                            addFinData={this.onAddFinancialData}
+                            addContact={this.onAddContact}
+                            />
                     }
                 </div>
             </div>

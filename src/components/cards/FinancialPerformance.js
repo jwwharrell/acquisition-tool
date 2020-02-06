@@ -14,11 +14,7 @@ export default class FinancialPerformance extends Component {
         this.setState(previousState)
     }
 
-    onAddData = (newData) => {
-        const previousState = { ...this.state }
-        previousState.performanceData = {...newData}
-        this.setState(previousState)
-    }
+    
 
     render() {
         return (
@@ -26,7 +22,12 @@ export default class FinancialPerformance extends Component {
                 <h2>Financial Performance</h2>
                 {this.state.performanceData !== '' ? <LineChart perfData={this.props.targetInfo.performanceData} /> : null}
                 <button onClick={this.onButtonPress}>{this.state.buttonPressed ? 'Hide Form' : 'Add Performance Data'}</button>
-                {this.state.buttonPressed ? <AddFinancialPerformance addData={this.onAddData} /> : null}
+                {this.state.buttonPressed ? 
+                    <AddFinancialPerformance 
+                        addFinData={this.props.addFinData}
+                        targetId={this.props.targetInfo.id} 
+                    /> 
+                : null}
             </div>
         )
     }
