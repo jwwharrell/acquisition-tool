@@ -6,20 +6,9 @@
 <br>
 
 
-<a href='#'><h2>Tool Link</h2></a>
+<a href='#'><h2>Project Link</h2></a>
 <br>
 
-
-<a href="#"><h2>Project Board</h2></a>
-<br>
-
-<h2>ERD</h2>
-<img src="#" alt="Picture of project ERD"/>
-<br>
-
-<h2>Wireframe</h2>
-<img src="#" alt="Picture of project wireframe"/>
-<br>
 
 <h2>Technologies Used</h2>
 <ul>
@@ -32,5 +21,6 @@
 <li>Node.js</li>
 <li>GitHub</li>
 <li>VS Code</li>
+<li>React Chart.js 2</li>
 </ul>
 
