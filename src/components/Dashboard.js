@@ -9,7 +9,7 @@ export default class Dashboard extends Component {
     state = {
         listOfTargets: [],
         filteredList: [],
-        selectedTarget: ''
+        selectedTarget: '',
 
     }
     //Bringing test data in to populate the tool.
@@ -32,6 +32,7 @@ export default class Dashboard extends Component {
         })
         const previousState = { ...this.state }
         previousState.selectedTarget = selectedTarget[0]
+        previousState.filteredSelectedTargetContacts = selectedTarget[0].contacts
         this.setState(previousState)
     }
 
@@ -72,6 +73,7 @@ export default class Dashboard extends Component {
         this.setState(previousState)
     }
 
+    //When the search field in the TargetList component is changed, the filteredList is altered
     handleTargetSearch = (searchInput) => {
         let currentList = []
         let newList = []
@@ -147,7 +149,6 @@ export default class Dashboard extends Component {
         previousState.listOfTargets[targetIndex].contacts.splice(contactIndex, 1)
         this.setState(previousState)
     }
-
 
     render() {
         return (

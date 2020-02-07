@@ -42,6 +42,7 @@ export default class ContactList extends Component {
         return (
             <div className='card'>
                 <h2>Contacts</h2>
+                
                 <ul>
                     {this.props.targetInfo.contacts.map((contact, index) => {
                         return (
@@ -61,7 +62,7 @@ export default class ContactList extends Component {
                         )
                     })}
                 </ul>
-                <span className='defaultBtn' 
+                <span className='defaultBtn'
                     onClick={this.onEditContactPress}
                 >{this.state.editButtonPressed ? 'Hide Form' : 'Edit Key Contacts'}</span>
                 {this.state.editButtonPressed ?
