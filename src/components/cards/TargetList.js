@@ -19,18 +19,22 @@ export default class TargetList extends Component {
                     {this.props.listOfTargets.map((target, index) => {
                         return (
                             <li key={'targetList' + index.toString()}>
-                                <button className='defaultBtn'
+                                <button className='listBtn'
                                     value={target.id}
                                     onClick={this.onTargetSelect}
                                 >
                                     {target.name}
                                 </button>
+                                <br />
                                 <button
+                                    className='deleteBtn'
                                     value={target.id}
                                     onClick={this.onTargetDelete}
                                 >
-                                    Delete Target
+                                    Delete
                             </button>
+                            <br />
+                            <br />
                             </li>
                         )
                     })}

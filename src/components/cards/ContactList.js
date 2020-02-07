@@ -46,15 +46,17 @@ export default class ContactList extends Component {
                     {this.props.targetInfo.contacts.map((contact, index) => {
                         return (
                             <li key={'contact' + index.toString()}>
-                                {contact.contactName}: {contact.contactEmail}
-
+                                <span className='bold'>{contact.contactName}:</span> {contact.contactEmail}
+                                <br />
                                 <button
+                                    className='deleteBtnAlt'
                                     onClick={this.onDeleteContact}
                                     value={contact.id}
                                 >
                                     Delete
                                 </button>
-
+                                <br />
+                                <br />
                             </li>
                         )
                     })}

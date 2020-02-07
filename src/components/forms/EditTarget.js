@@ -41,7 +41,7 @@ export default class EditTarget extends Component {
     render() {
         return (
             <form
-                className='card--form'
+                className='editForm'
                 onSubmit={this.editTarget}
             >
                 <input
