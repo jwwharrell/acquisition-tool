@@ -23,7 +23,7 @@ export default class TargetList extends Component {
                     <form>
                         <input
                             type='text'
-                            placeholder='Search Company Name'
+                            placeholder='Search'
                             name="companyName"
                             onChange={this.onSearchTargetNameChange}
                         />
