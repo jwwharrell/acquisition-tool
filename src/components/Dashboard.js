@@ -37,7 +37,7 @@ export default class Dashboard extends Component {
     //The submit button on the AddContact component adds a new target to the list of targets, a new target will have no contacts or financial data
     onAddTarget = (newTarget) => {
         let currentTarget = newTarget
-        currentTarget.id = 'target' + this.state.listOfTargets.length.toString()
+        currentTarget.id = new Date().getTime().toString()
         const previousState = { ...this.state }
         previousState.listOfTargets.push(currentTarget)
         this.setState(previousState)
