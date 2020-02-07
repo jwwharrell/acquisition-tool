@@ -12,28 +12,30 @@ export default class TargetList extends Component {
 
     render() {
         return (
-            <ul className='card'>
-                <h2>Target List</h2>
+            <div className='targetList'>
+                <ul>
+                    <h2>Target List</h2>
 
-                {this.props.listOfTargets.map((target, index) => {
-                    return (
-                        <li key={'targetList' + index.toString()}>
-                            <button
-                                value={target.id}
-                                onClick={this.onTargetSelect}
-                            >
-                                {target.name}
+                    {this.props.listOfTargets.map((target, index) => {
+                        return (
+                            <li key={'targetList' + index.toString()}>
+                                <button className='defaultBtn'
+                                    value={target.id}
+                                    onClick={this.onTargetSelect}
+                                >
+                                    {target.name}
+                                </button>
+                                <button
+                                    value={target.id}
+                                    onClick={this.onTargetDelete}
+                                >
+                                    Delete Target
                             </button>
-                            <button
-                                value={target.id}
-                                onClick={this.onTargetDelete} 
-                            >
-                                Delete Target
-                            </button>
-                        </li>
-                    )
-                })}
-            </ul>
+                            </li>
+                        )
+                    })}
+                </ul>
+            </div>
         )
     }
 }

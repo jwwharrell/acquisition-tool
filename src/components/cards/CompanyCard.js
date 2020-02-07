@@ -21,12 +21,12 @@ export default class CompanyCard extends Component {
                     <h2>{this.props.targetInfo.name}</h2>
                     <span className='statusMark'>{this.props.targetInfo.status}</span>
                     <p>{this.props.targetInfo.info}</p>
-                    <button
+                    <span className='defaultBtn'
                         onClick={this.onButtonPress}
                     >
                         {this.state.buttonPressed ? 'Hide Form'
                         : 'Edit Basic Information'}
-                    </button>
+                    </span>
                     {this.state.buttonPressed ? 
                     <EditTarget 
                         targetInfo={this.props.targetInfo}

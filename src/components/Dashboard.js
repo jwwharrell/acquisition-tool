@@ -15,9 +15,9 @@ export default class Dashboard extends Component {
     //Removal of test data will have no impact on functionality.
 
     componentDidMount() {
-        this.setState({listOfTargets: Data.companies, selectedTarget: ''})
+        this.setState({ listOfTargets: Data.companies, selectedTarget: '' })
     }
-    
+
     //Dashboard component holds the application's data in state, passing down necessary data via props
     //All create, update and delete functions are also held in this component and are passed down to the 
     //appropriate form components.
@@ -131,7 +131,7 @@ export default class Dashboard extends Component {
         this.setState(previousState)
     }
 
-    
+
     render() {
         return (
             <div>
@@ -140,23 +140,26 @@ export default class Dashboard extends Component {
                     <AddTarget
                         onSubmit={this.onAddTarget}
                     />
-                    {this.state.listOfTargets.length === 0 ? null :
-                        <TargetList
-                            listOfTargets={this.state.listOfTargets}
-                            targetSelect={this.onTargetSelect}
-                            targetDelete={this.onTargetDelete}
-                        />
-                    }
-                    {this.state.selectedTarget === '' ? null :
-                        <CompanyCard 
-                            targetInfo={this.state.selectedTarget} 
-                            addFinData={this.onAddFinancialData}
-                            addContact={this.onAddContact}
-                            editContact={this.onEditContact}
-                            deleteContact={this.onDeleteContact}
-                            onSubmitEdit={this.onSubmitEdit}
-                        />
-                    }
+                    <div className='dashboard--body'>
+                        {this.state.listOfTargets.length === 0 ? null :
+                            <TargetList
+                                listOfTargets={this.state.listOfTargets}
+                                targetSelect={this.onTargetSelect}
+                                targetDelete={this.onTargetDelete}
+                            />
+                        }
+
+                        {this.state.selectedTarget === '' ? null :
+                            <CompanyCard
+                                targetInfo={this.state.selectedTarget}
+                                addFinData={this.onAddFinancialData}
+                                addContact={this.onAddContact}
+                                editContact={this.onEditContact}
+                                deleteContact={this.onDeleteContact}
+                                onSubmitEdit={this.onSubmitEdit}
+                            />
+                        }
+                    </div>
                 </div>
             </div>
         )

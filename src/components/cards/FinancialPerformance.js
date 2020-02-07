@@ -27,7 +27,7 @@ export default class FinancialPerformance extends Component {
             <div className='card'>
                 <h2>Financial Performance</h2>
                 {this.state.performanceData !== '' ? <LineChart perfData={this.props.targetInfo.performanceData} /> : null}
-                <button onClick={this.onButtonPress}>{this.state.buttonPressed ? 'Hide Form' : addOrUpdate}</button>
+                <span className='defaultBtn' onClick={this.onButtonPress}>{this.state.buttonPressed ? 'Hide Form' : addOrUpdate}</span>
                 {this.state.buttonPressed ? 
                     <AddFinancialPerformance 
                         addFinData={this.props.addFinData}

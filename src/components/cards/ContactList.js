@@ -59,17 +59,17 @@ export default class ContactList extends Component {
                         )
                     })}
                 </ul>
-                <button 
+                <span className='defaultBtn' 
                     onClick={this.onEditContactPress}
-                >{this.state.editButtonPressed ? 'Hide Form' : 'Edit Key Contacts'}</button>
+                >{this.state.editButtonPressed ? 'Hide Form' : 'Edit Key Contacts'}</span>
                 {this.state.editButtonPressed ?
                     <EditContact
                         editContact={this.props.editContact}
                         targetInfo={this.props.targetInfo}
                     /> : null}
-                <button
+                <span className='defaultBtn'
                     onClick={this.onButtonPress}
-                >{this.state.buttonPressed ? 'Hide Form' : 'Add Key Contacts'}</button>
+                >{this.state.buttonPressed ? 'Hide Form' : 'Add Key Contacts'}</span>
                 {this.state.buttonPressed ?
                     <AddContact
                         addContact={this.props.addContact}
