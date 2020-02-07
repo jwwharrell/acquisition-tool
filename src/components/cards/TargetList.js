@@ -10,12 +10,24 @@ export default class TargetList extends Component {
         this.props.targetDelete(e.target.value)
     }
 
+    onSearchTargetNameChange = (e) => {
+        const targetSearchValue = e.target.value
+        this.props.targetSearch(targetSearchValue)
+    }
+
     render() {
         return (
             <div className='targetList'>
                 <ul>
                     <h2>Target List</h2>
-
+                    <form>
+                        <input
+                            type='text'
+                            placeholder='Search Company Name'
+                            name="companyName"
+                            onChange={this.onSearchTargetNameChange}
+                        />
+                    </form>
                     {this.props.listOfTargets.map((target, index) => {
                         return (
                             <li key={'targetList' + index.toString()}>

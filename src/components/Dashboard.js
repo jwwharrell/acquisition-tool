@@ -8,6 +8,7 @@ import CompanyCard from './cards/CompanyCard.js'
 export default class Dashboard extends Component {
     state = {
         listOfTargets: [],
+        filteredList: [],
         selectedTarget: ''
 
     }
@@ -15,7 +16,7 @@ export default class Dashboard extends Component {
     //Removal of test data will have no impact on functionality.
 
     componentDidMount() {
-        this.setState({ listOfTargets: Data.companies, selectedTarget: '' })
+        this.setState({ listOfTargets: Data.companies, filteredList: Data.companies, selectedTarget: '' })
     }
 
     //Dashboard component holds the application's data in state, passing down necessary data via props
@@ -25,7 +26,7 @@ export default class Dashboard extends Component {
     //Selecting a target/company from the TargetList component will run this function and populate the 
     //CompanyCard component with the information of the selected target.
     onTargetSelect = (targetId) => {
-        let allTargets = this.state.listOfTargets
+        let allTargets = this.state.filteredList
         let selectedTarget = allTargets.filter((target) => {
             return target.id === targetId
         })
@@ -69,6 +70,22 @@ export default class Dashboard extends Component {
         }
         previousState.listOfTargets.splice(newIndex, 1)
         this.setState(previousState)
+    }
+
+    handleTargetSearch = (searchInput) => {
+        let currentList = []
+        let newList = []
+        if (searchInput !== '') {
+            currentList = this.state.listOfTargets
+            newList = currentList.filter((target) => {
+                const lowerCaseIncomingTarget = target.name.toLowerCase()
+                const lowerCaseTextField = searchInput.toLowerCase()
+                return lowerCaseIncomingTarget.includes(lowerCaseTextField)
+            })
+        } else {
+            newList = this.state.listOfTargets
+        }
+        this.setState({filteredList: newList})
     }
 
     //Upon selecting a target, entering data and submitting it via the form in the AddFinancialPerformance component,
@@ -143,9 +160,10 @@ export default class Dashboard extends Component {
                     <div className='dashboard--body'>
                         {this.state.listOfTargets.length === 0 ? null :
                             <TargetList
-                                listOfTargets={this.state.listOfTargets}
+                                listOfTargets={this.state.filteredList}
                                 targetSelect={this.onTargetSelect}
                                 targetDelete={this.onTargetDelete}
+                                targetSearch={this.handleTargetSearch}
                             />
                         }
 
