@@ -1,14 +1,7 @@
 import React, { Component } from 'react'
+import MiniCompanyCard from './MiniCompanyCard'
 
 export default class TargetList extends Component {
-
-    onTargetSelect = (e) => {
-        this.props.targetSelect(e.target.value)
-    }
-
-    onTargetDelete = (e) => {
-        this.props.targetDelete(e.target.value)
-    }
 
     onSearchTargetNameChange = (e) => {
         const targetSearchValue = e.target.value
@@ -31,22 +24,14 @@ export default class TargetList extends Component {
                     {this.props.listOfTargets.map((target, index) => {
                         return (
                             <li key={'targetList' + index.toString()}>
-                                <button className='listBtn'
-                                    value={target.id}
-                                    onClick={this.onTargetSelect}
-                                >
-                                    {target.name}
-                                </button>
+                                <MiniCompanyCard 
+                                    name={target.name}
+                                    status={target.status}
+                                    targetSelect={this.props.targetSelect}
+                                    targetId={target.id}
+                                    targetDelete={this.props.targetDelete}
+                                />
                                 <br />
-                                <button
-                                    className='deleteBtn'
-                                    value={target.id}
-                                    onClick={this.onTargetDelete}
-                                >
-                                    Delete
-                            </button>
-                            <br />
-                            <br />
                             </li>
                         )
                     })}

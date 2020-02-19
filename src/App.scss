@@ -11,7 +11,7 @@ body {
     color: $primary;
 }
 
-h1, h2, .statusMark, p {
+h1, h2, h3, .statusMark, p {
     font-weight: 200;
 }
 
@@ -107,10 +107,14 @@ input[type=submit]:hover {
 }
 
 .deleteBtn {
-    border: none;
-    background-color: $primary;
-    color: $background;
-    border-bottom: 1px solid $background;
+    text-align: left;
+
+    button{
+        border: none;
+        background-color: $primary;
+        color: $background;
+        border-bottom: 1px solid $background;
+    }
 
 }
 
@@ -190,6 +194,8 @@ input[type=submit]:hover {
     padding: 7px;
     border-radius: 2px;
 
+    
+
     form {
         display: flex;
         flex-direction: column;
@@ -200,8 +206,24 @@ input[type=submit]:hover {
         }
     }
 
+    
+
     li {
         list-style: none;
+    }
+}
+
+.miniCard {
+    color: $background;
+    text-align: center;
+    width: 100%;
+    padding: 0 5px;
+    border-left: solid $accent 2px;
+    border-right: solid $accent 2px;
+
+    h3:hover {
+        cursor: pointer;
+        color: $accent;
     }
 }
 
