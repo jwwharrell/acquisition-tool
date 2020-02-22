@@ -6,9 +6,7 @@
 <br>
 
 
-<a href='https://master.d27udzalc0jumd.amplifyapp.com/' target="_blank" rel="noopener">
-    <h2>Project Link</h2>
-</a>
+<a href='https://master.d27udzalc0jumd.amplifyapp.com/' target="_blank"><h2>Project Link</h2></a>
 <br>
 
 
