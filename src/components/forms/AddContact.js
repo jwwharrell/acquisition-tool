@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import FadeIn from 'react-fade-in'
+
 
 export default class AddContact extends Component {
     state = {
@@ -36,29 +38,31 @@ export default class AddContact extends Component {
 
     render() {
         return (
-            <form 
-                onSubmit={this.createNewContact}
-                className='card--form'>
-                <input
-                    type='text'
-                    placeholder='Key Contact Name'
-                    name="contactName"
-                    required="required"
-                    onChange={this.onNewTargetContactNameChange}
-                    value={this.state.contact.contactName}
-                />
-                <input
-                    type='email'
-                    placeholder='Key Contact Email'
-                    name="contactEmail"
-                    required="required"
-                    onChange={this.onNewTargetContactEmailChange}
-                    value={this.state.contact.contactEmail}
-                />
-                <input
+            <FadeIn>
+                <form
+                    onSubmit={this.createNewContact}
+                    className='card--form'>
+                    <input
+                        type='text'
+                        placeholder='Key Contact Name'
+                        name="contactName"
+                        required="required"
+                        onChange={this.onNewTargetContactNameChange}
+                        value={this.state.contact.contactName}
+                    />
+                    <input
+                        type='email'
+                        placeholder='Key Contact Email'
+                        name="contactEmail"
+                        required="required"
+                        onChange={this.onNewTargetContactEmailChange}
+                        value={this.state.contact.contactEmail}
+                    />
+                    <input
                         type='submit'
                     />
-            </form>
+                </form>
+            </FadeIn>
         )
     }
 }
