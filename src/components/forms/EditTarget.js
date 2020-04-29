@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import FadeIn from 'react-fade-in'
+
 
 export default class EditTarget extends Component {
     state = {
@@ -40,39 +42,41 @@ export default class EditTarget extends Component {
 
     render() {
         return (
-            <form
-                className='editForm'
-                onSubmit={this.editTarget}
-            >
-                <input
-                    type='text'
-                    name="name"
-                    required="required"
-                    onChange={this.onNewTargetNameChange}
-                    value={this.state.name}
-                />
-                <textarea
-                    type='text'
-                    name="info"
-                    required="required"
-                    onChange={this.onNewTargetInfoChange}
-                    value={this.state.info}
-                />
-                <select
-                    name='status'
-                    onChange={this.onNewTargetStatusChange}
-                    value={this.state.status}
+            <FadeIn>
+                <form
+                    className='editForm'
+                    onSubmit={this.editTarget}
                 >
-                    <option value={null}> -- Select Status -- </option>
-                    <option value='Researching'>Researching</option>
-                    <option value='Pending Approval'>Pending Approval</option>
-                    <option value='Approved'>Approved</option>
-                    <option value='Declined'>Declined</option>
-                </select>
-                <input
-                    type='submit'
-                />
-            </form>
+                    <input
+                        type='text'
+                        name="name"
+                        required="required"
+                        onChange={this.onNewTargetNameChange}
+                        value={this.state.name}
+                    />
+                    <textarea
+                        type='text'
+                        name="info"
+                        required="required"
+                        onChange={this.onNewTargetInfoChange}
+                        value={this.state.info}
+                    />
+                    <select
+                        name='status'
+                        onChange={this.onNewTargetStatusChange}
+                        value={this.state.status}
+                    >
+                        <option value={null}> -- Select Status -- </option>
+                        <option value='Researching'>Researching</option>
+                        <option value='Pending Approval'>Pending Approval</option>
+                        <option value='Approved'>Approved</option>
+                        <option value='Declined'>Declined</option>
+                    </select>
+                    <input
+                        type='submit'
+                    />
+                </form>
+            </FadeIn>
         )
     }
 }
