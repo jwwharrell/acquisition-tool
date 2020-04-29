@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import FadeIn from 'react-fade-in'
 
 export default class AddTarget extends Component {
     state = {
@@ -45,53 +46,55 @@ export default class AddTarget extends Component {
 
     render() {
         return (
-            <div className='addTargetBox'>
-                <span className='defaultBtn' onClick={this.onButtonPress}>
-                    {this.state.buttonPressed ? 'Hide Form' : 'Add Target'}
-                </span>
-                {this.state.buttonPressed ?
-                    <div className='card'>
+            <FadeIn>
+                <div className='addTargetBox'>
+                    <span className='defaultBtn' onClick={this.onButtonPress}>
+                        {this.state.buttonPressed ? 'Hide Form' : 'Add Target'}
+                    </span>
+                    {this.state.buttonPressed ?
+                        <div className='card'>
 
-                        <form
-                            className='card--form'
-                            onSubmit={this.createNewTarget}
-                        >
-                            <input
-                                type='text'
-                                placeholder='Company Name'
-                                name="name"
-                                required="required"
-                                onChange={this.onNewTargetNameChange}
-                                value={this.state.name}
-                            />
-                            <textarea
-                                type='text'
-                                placeholder='Company Info'
-                                name="info"
-                                required="required"
-                                onChange={this.onNewTargetInfoChange}
-                                value={this.state.info}
-                            />
-                            <select
-                                name='status'
-                                onChange={this.onNewTargetStatusChange}
-                                value={this.state.status}
+                            <form
+                                className='card--form'
+                                onSubmit={this.createNewTarget}
                             >
-                                <option value={null}> -- Select Status -- </option>
-                                <option value='Researching'>Researching</option>
-                                <option value='Pending Approval'>Pending Approval</option>
-                                <option value='Approved'>Approved</option>
-                                <option value='Declined'>Declined</option>
-                            </select>
-                            <input
-                                type='submit'
-                            />
-                        </form>
-                    </div>
+                                <input
+                                    type='text'
+                                    placeholder='Company Name'
+                                    name="name"
+                                    required="required"
+                                    onChange={this.onNewTargetNameChange}
+                                    value={this.state.name}
+                                />
+                                <textarea
+                                    type='text'
+                                    placeholder='Company Info'
+                                    name="info"
+                                    required="required"
+                                    onChange={this.onNewTargetInfoChange}
+                                    value={this.state.info}
+                                />
+                                <select
+                                    name='status'
+                                    onChange={this.onNewTargetStatusChange}
+                                    value={this.state.status}
+                                >
+                                    <option value={null}> -- Select Status -- </option>
+                                    <option value='Researching'>Researching</option>
+                                    <option value='Pending Approval'>Pending Approval</option>
+                                    <option value='Approved'>Approved</option>
+                                    <option value='Declined'>Declined</option>
+                                </select>
+                                <input
+                                    type='submit'
+                                />
+                            </form>
+                        </div>
 
-                    : null
-                }
-            </div>
+                        : null
+                    }
+                </div>
+            </FadeIn>
         )
     }
 }
