@@ -46,12 +46,12 @@ export default class AddTarget extends Component {
 
     render() {
         return (
-            <FadeIn>
-                <div className='addTargetBox'>
-                    <span className='defaultBtn' onClick={this.onButtonPress}>
-                        {this.state.buttonPressed ? 'Hide Form' : 'Add Target'}
-                    </span>
-                    {this.state.buttonPressed ?
+            <div className='addTargetBox'>
+                <span className='defaultBtn' onClick={this.onButtonPress}>
+                    {this.state.buttonPressed ? 'Hide Form' : 'Add Target'}
+                </span>
+                {this.state.buttonPressed ?
+                    <FadeIn>
                         <div className='card'>
 
                             <form
@@ -90,11 +90,11 @@ export default class AddTarget extends Component {
                                 />
                             </form>
                         </div>
+                    </FadeIn>
 
-                        : null
-                    }
-                </div>
-            </FadeIn>
+                    : null
+                }
+            </div>
         )
     }
 }
