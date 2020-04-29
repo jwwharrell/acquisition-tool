@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import FadeIn from 'react-fade-in'
+
 
 export default class EditContact extends Component {
     state = {
@@ -10,7 +12,7 @@ export default class EditContact extends Component {
         const contactIndex = e.target.id
         const previousState = { ...this.state }
         previousState.contacts[contactIndex].contactName = contactName
-        this.setState(previousState)    
+        this.setState(previousState)
     }
 
     onNewTargetContactEmailChange = (e) => {
@@ -18,7 +20,7 @@ export default class EditContact extends Component {
         const contactIndex = e.target.id - 10000
         const previousState = { ...this.state }
         previousState.contacts[contactIndex].contactEmail = contactEmail
-        this.setState(previousState)  
+        this.setState(previousState)
     }
 
     editContact = (e) => {
@@ -30,35 +32,37 @@ export default class EditContact extends Component {
 
     render() {
         return (
-            <form onSubmit={this.editContact}>
-                {this.state.contacts.map((contact, index) => {
-                    return (
-                        <div key={'editContact' + index}>
-                            <input
-                                type='text'
-                                placeholder='Key Contact Name'
-                                name="contactName"
-                                required="required"
-                                onChange={this.onNewTargetContactNameChange}
-                                value={contact.contactName}
-                                id={index}
-                            />
-                            <input
-                                type='email'
-                                placeholder='Key Contact Email'
-                                name="contactEmail"
-                                required="required"
-                                onChange={this.onNewTargetContactEmailChange}
-                                value={contact.contactEmail}
-                                id={index+10000}
-                            />
-                        </div>
-                    )
-                })}
-                <input
-                    type='submit'
-                />
-            </form>
+            <FadeIn>
+                <form onSubmit={this.editContact}>
+                    {this.state.contacts.map((contact, index) => {
+                        return (
+                            <div key={'editContact' + index}>
+                                <input
+                                    type='text'
+                                    placeholder='Key Contact Name'
+                                    name="contactName"
+                                    required="required"
+                                    onChange={this.onNewTargetContactNameChange}
+                                    value={contact.contactName}
+                                    id={index}
+                                />
+                                <input
+                                    type='email'
+                                    placeholder='Key Contact Email'
+                                    name="contactEmail"
+                                    required="required"
+                                    onChange={this.onNewTargetContactEmailChange}
+                                    value={contact.contactEmail}
+                                    id={index + 10000}
+                                />
+                            </div>
+                        )
+                    })}
+                    <input
+                        type='submit'
+                    />
+                </form>
+            </FadeIn>
         )
     }
 }
