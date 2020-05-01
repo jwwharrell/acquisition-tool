@@ -111,7 +111,7 @@ input[type=submit]:hover {
 
     button{
         border: none;
-        background-color: $primary;
+        background-color: rgba(100, 100, 100, 0.3);
         color: $background;
         border-bottom: 1px solid $background;
     }
@@ -120,7 +120,7 @@ input[type=submit]:hover {
 
 .deleteBtnAlt {
     border: none;
-    background-color: $background;
+    background-color: rgba(100, 100, 100, 0.1);
     color: $primary;
     border-bottom: 1px solid $primary;
 
@@ -220,6 +220,10 @@ input[type=submit]:hover {
     padding: 0 5px;
     border-left: solid $accent 2px;
     border-right: solid $accent 2px;
+
+    h3 {
+        background-color: rgba(100, 100, 100, 0.3);
+    }
 
     h3:hover {
         cursor: pointer;
