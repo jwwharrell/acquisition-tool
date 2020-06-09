@@ -18,7 +18,7 @@
 <li>JavaScript</li>
 <li>JSX</li>
 <li>React.js</li>
-<li>Node.js</li>
+<li>Node</li>
 <li>GitHub</li>
 <li>VS Code</li>
 <li>React Chart.js 2</li>
